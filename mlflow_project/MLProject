@@ -1,0 +1,17 @@
+name: My Project
+
+conda_env: conda.yaml
+# Can have a docker_env instead of a conda_env, e.g.
+# docker_env:
+#    image:  mlflow-docker-example
+
+entry_points:
+  main:
+    parameters:
+      data_file: ../data/WA_Fn-UseC_-Telco-Customer-Churn.csv 
+    command: "python MLflow_training.py {data_file}"
+  validate:
+    parameters:
+      X_val: ../data/X_val.csv
+      y_val: ../data/y_val.csv
+    command: "python MLflow_validate.py {X_val} {y_val}"
